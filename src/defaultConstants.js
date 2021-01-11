@@ -36,8 +36,8 @@ export const movieAPIS = {
     MOVIE_VIDEO_API: `/videos?api_key=${TMDB_API_KEY}&language=en-US`,
     SIMILAR_MOVIES_API: `/similar?api_key=${TMDB_API_KEY}&language=en-US&page=1`,
 
-    OMDB_API: `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&`,
+    OMDB_API: `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&`,
     TEST_DRIVE_API: `https://tastedive.com/api/similar?info=1&limit=5&q=`,
 
-    IMAGE_BASE_PATH:'http://image.tmdb.org/t/p/w400'
+    IMAGE_BASE_PATH:'https://image.tmdb.org/t/p/w400'
 }
