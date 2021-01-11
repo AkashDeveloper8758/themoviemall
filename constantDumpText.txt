@@ -1,0 +1,24 @@
+ // {
+    //   id: "1",
+    //   posterImage: BlackWidow,
+    //   title: "black widow",
+    //   rating: "5.3",
+    // },
+    // {
+    //   id: "2",
+    //   posterImage: CaptenMarvel,
+    //   title: "Captem Marvel",
+    //   rating: "7.3",
+    // },
+    // {
+    //   id: "3",
+    //   posterImage: Joker,
+    //   title: "Joker",
+    //   rating: "8.3",
+    // },
+    // {
+    //   id: "4",
+    //   posterImage: TruthSeeker,
+    //   title: "TruthSeeker",
+    //   rating: "9.3",
+    // },

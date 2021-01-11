@@ -1,0 +1,25 @@
+
+.movietitle {
+  /* bottom: 30px;
+  left: 40px; */
+  max-width: 50vw;
+  max-lines: 2;
+  @apply font-sans font-bold  xl:text-8xl lg:text-8xl 
+   sm:text-7xl text-4xl text-white ;
+}
+
+.poster{
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  @apply top-0 bottom-0 z-10 ;
+}
+.smallPoster{
+  width: 40vmin;
+  height: auto;
+}
+
+.posterItem{
+  object-fit: cover;
+  @apply flex flex-col justify-start p-4 w-full sm:h-full;
+}
