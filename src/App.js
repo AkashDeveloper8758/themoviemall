@@ -1,7 +1,7 @@
 import NavBar from './screens/home/components/navBar';
 import HomeScreen from './screens/home/home';
 import './styles/App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import MovieTypeScreen from './screens/typeScreen/moviesTypeScreen';
 // import MovieScreen from './screens/typeScreen/MovieScreen';
 import { GlobalProvider } from './GlobalStates';
