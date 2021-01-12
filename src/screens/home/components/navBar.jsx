@@ -22,7 +22,7 @@ function NavBar(params) {
     <div className="flex flex-col xsm:flex-row  fixed z-50 py-2 px-2 md:px-8 bg-black bg-opacity-60 items-center justify-between w-full ">
       <div className="flex justify-between flex-1 items-center">
         <Link className="text-white  text-lg " to="/">
-          THE MOVIE MALL
+          MOVIE MALL
         </Link>
         <Link className="navbar__item   " to="/">
           Home

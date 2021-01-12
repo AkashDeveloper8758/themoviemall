@@ -23,11 +23,11 @@ function DialogMovieDetail({ id }) {
   useEffect(() => {
     setLoading(true);
     const myUrl = movieAPIS.OMDB_API + "i=" + id;
-    console.log("detail api url: ", myUrl);
+    // console.log("detail api url: ", myUrl);
     const fetchMovieDetail = async () => {
       const res = await fetch(myUrl);
       const resData = await res.json();
-      console.log("value is: ", resData);
+      // console.log("value is: ", resData);
       movieDataParser(resData);
       setLoading(false);
     };

@@ -87,7 +87,7 @@ function HomeScreen() {
     const fetchData = async () => {
       try {
         fetchArrayUrls.forEach(async (url) => {
-          console.log('fetch url : ',url)
+          // console.log('fetch url : ',url)
           const globalExist = moviesGlobal[movieTypeToApiMaping(url, [])];
           if (globalExist !== undefined) {
             // console.log('exist data for: ',globalExist)
@@ -102,7 +102,7 @@ function HomeScreen() {
 
           await setMoviesAction(movieTypeData, movieItems);
           if (movieTypeData === movieType.UPCOMMING_MOVIES) {
-            console.log("store movies for: ", moviesGlobal[movieTypeData]);
+            // console.log("store movies for: ", moviesGlobal[movieTypeData]);
           }
         });
         // setIsLoading(false);

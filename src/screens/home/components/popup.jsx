@@ -19,12 +19,12 @@ function DialogPopup({
   useEffect(() => {
     const myFetch = async () => {
       var myUrl = movieAPIS.OMDB_API + "s=" + searchQuery;
-      console.log("my url : ", myUrl);
+      // console.log("my url : ", myUrl);
       try {
         var mySearchMovieResult = [];
         var res = await fetch(myUrl);
         var resData = await res.json();
-        console.log("final data: ", resData);
+        // console.log("final data: ", resData);
         setIsLoading(false);
         var searchData = resData["Search"];
         if (searchData !== undefined) {

@@ -2,7 +2,7 @@ require("dotenv").config();
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const OMDB_API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 export const TMDB_BASE_URL = 'https://api.themoviedb.org/3/movie/';
-console.log('tmdb api : ',TMDB_API_KEY)
+// console.log('tmdb api : ',TMDB_API_KEY)
 
 export const movieType = {
     UPCOMMING_MOVIES: "UPCOMMING_MOVIES",
