@@ -111,11 +111,11 @@ function DialogPopup({
         </div>
       ) : (
         <div className="flex justify-between w-full">
-          <div className='flex items-center'>
+          <div className=' flex flex-col xsm:flex-row justify-start xsm:fitems-center'>
           <p>Search for : </p>
           <p className="text-xl text-blue-600 font-bold">{searchQuery}</p>
           </div>
-          <Button variant='outlined' onClick={()=>{
+          <Button variant='text' onClick={()=>{
             setOnPopup(false);
             inputClearFunction();
           }} > X </Button>

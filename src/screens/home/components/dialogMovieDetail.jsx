@@ -47,7 +47,7 @@ function DialogMovieDetail({ id }) {
     return (
       <div className="wrapper__child__dialog__detail">
         <img
-          className=" object-contain w-full h-full  rounded-lg "
+          className=" object-contain w-full h-full rounded-lg "
           src={posterImage}
           alt="main poster"
         ></img>
@@ -80,9 +80,9 @@ function DialogMovieDetail({ id }) {
       {isLoading ? (
         <LoadingComponent />
       ) : (
-        <div className="flex flex-col sm:flex-row justify-start items-start">
+        <div className="flex flex-col sm:flex-row justify-start items-center sm:items-start">
           <MoviePosterComponent posterImage={movieDetail.Poster} />
-          <div className="flex flex-col m-2 items-start  py-4 overflow-x-hidden overflow-y-auto">
+          <div className="flex flex-col m-1 items-start  py-4 overflow-x-hidden overflow-y-auto">
             <div className="text-4xl font-bold ">{movieDetail.Title}</div>
             <div className="flex my-2 space-x-2 font-bold">
               <p>{movieDetail.Runtime + " / "}</p>

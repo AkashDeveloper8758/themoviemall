@@ -174,14 +174,14 @@ function MovieDetail({ movieId }) {
 
   const PosterGroup = () => (
     <div className=" flex lg:flex-row flex-col items-start ">
-      <div className="w-72 h-auto object-contain p-1 sm:w-1/2 lg:w-1/3 ">
-        <img
+      <div className="w-full  h-auto object-contain p-1 xsm:w-2/3 sm:w-1/2 lg:w-1/2 ">
+        <img 
           src={movieDetail.posterPath}
           className="w-full h-full object-contain"
           alt="movie"
         ></img>
       </div>
-      <div className="flex flex-col justify-start mt-2 m-1 p-1  lg:pl-8 lg:max-w-2/3">
+      <div className="flex flex-col justify-start mt-2 m-1 p-1 lg:pl-8 w-full">
         <h1 className="text-white text-6xl">{movieDetail.title}</h1>
         <div className="flex justify-start mt-4 flex-wrap ">
           {movieDetail.gernes.map((item) => {
@@ -233,7 +233,7 @@ function MovieDetail({ movieId }) {
     return (
       <div className="mt-8">
         <p className="text-white text-3xl "> Similar movies 🍎 </p>
-        <div className="grid grid-flow-row lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 ">
+        <div className="grid grid-flow-row justify-center lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 ">
           {isMoreActive
             ? similarMovies.map((movie) => (
                 <MovieItem
@@ -245,7 +245,7 @@ function MovieDetail({ movieId }) {
                   title={movie.title}
                 />
               ))
-            : similarMovies.slice(0, 4).map((movie) => {
+            : similarMovies.slice(0, 5).map((movie) => {
                 return (
                   <MovieItem
                     key={movie.id}
@@ -270,9 +270,9 @@ function MovieDetail({ movieId }) {
       {isLoading ? (
         <LoadingComponent />
       ) : (
-        <div className="pt-12">
+        <div className=" pt-24 sm:pt-12">
           <YoutubeFrame />
-          <div className="mx-4 md:mx-8 lg-mx-12">
+          <div className="mx-2 md:mx-4 lg:mx-12">
             <PosterGroup />
             <Recommendations />
           </div>

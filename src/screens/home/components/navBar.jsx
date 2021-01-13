@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "../../../index.css";
 import { Link } from "react-router-dom";
 import DialogPopup from "./popup";
+import MovieMallLogoImage from '../../../images/movieLogo.svg'
 
-function NavBar(params) {
+function NavBar() {
   const [searchInput, setSearchInput] = useState("");
   const [popupValue, setPopupValue] = useState(false);
 
@@ -17,16 +18,16 @@ function NavBar(params) {
     event.preventDefault();
     setPopupValue(true);
   }
-
+  
   return (
-    <div className="flex flex-col xsm:flex-row  fixed z-50 py-2 px-2 md:px-8 bg-black bg-opacity-60 items-center justify-between w-full ">
+    <div className="navbar">
       <div className="flex justify-between flex-1 items-center">
-        <Link className="text-white  text-lg " to="/">
-          MOVIE MALL
+        <Link className="text-white text-lg " to="/">
+          <img className='navbar__item_logo'  src={MovieMallLogoImage} alt='movieMallLogo'></img>
         </Link>
-        <Link className="navbar__item   " to="/">
+        {/* <Link className="navbar__item" to="/">
           Home
-        </Link>
+        </Link> */}
       </div>
       <div className="bg-white p-2 mx-4 rounded-md  justify-self-stretch ">
         <form onSubmit={handleSubmit}>

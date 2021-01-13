@@ -5,7 +5,7 @@ const MovieGrid = ({movies}) => {
   // console.log('grid movies : ',movies)
 
   return (
-    <div className="grid grid-flow-row lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 xsm:grid-cols-1 ">
+    <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 xsm:grid-cols-2 ">
       { movies &&  movies.map((element, i) => {
         return (
           <MovieItem

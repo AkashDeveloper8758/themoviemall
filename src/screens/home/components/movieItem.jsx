@@ -7,7 +7,7 @@ function MovieItem({ posterImage, title, rating, id, backDropPath,date}) {
   const history = useHistory()
 
   const handleOnClick = () =>{
-    history.replace(linkUrl)
+    history.push(linkUrl)
   }
   
   return (
