@@ -20,11 +20,7 @@ code {
   transition: all .2s ease-in-out;
   @apply text-white font-medium text-2xl
 }
-.heading:hover{
-  transform: translate(20px,0px);
-  color: blueviolet;
-  cursor: pointer;
-} 
+
 
 .movieItem{
   transition: all .2s ease-out;

@@ -13,7 +13,7 @@ function MovieTypeScreen({ localMovieType }) {
 
   return (
     <div className="pt-12">
-      <MovieGrid movies= {localMovieType === movieType.TOP_RATED ? moviesSpecific.slice(3) :  moviesSpecific} />
+      <MovieGrid isExpanded = {true} movies= {localMovieType === movieType.TOP_RATED ? moviesSpecific.slice(3) :  moviesSpecific} />
     </div>
   );
 }

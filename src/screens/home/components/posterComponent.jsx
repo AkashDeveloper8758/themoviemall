@@ -17,8 +17,8 @@ function MainPoster({ moviePoster }) {
       <div className="bg-black opacity-50 w-full h-full absolute z-20"></div>
       <div className="bg-gradient-to-t from-black via-black to-transparent w-full h-20 absolute z-20 bottom-0"></div>
 
-      <div className="flex flex-col absolute bottom-0 m-1 my-4 z-30 right-0 left-0">
-        <div className="flex flex-row justify-between  absolute  bottom-6 left-0 right-0 m-2  z-30 items-end">
+      <div className="flex flex-col absolute bottom-0 m-4 z-30 right-0 left-0">
+        <div className="flex flex-row justify-between  absolute  bottom-6 left-0 right-0 my-4  z-30 items-end">
           <p className={styles.movietitle}>{title}</p>
           <img
             className={styles.smallPoster}

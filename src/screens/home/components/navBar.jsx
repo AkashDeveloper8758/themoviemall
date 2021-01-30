@@ -49,7 +49,7 @@ function NavBar() {
             title={searchInput}
             inputClearFunction={()=>setSearchInput("")}
           >
-            {<p> this is children </p>}
+            {/* {<p> this is children </p>} */}
           </DialogPopup>
         ) : (
           <div></div>

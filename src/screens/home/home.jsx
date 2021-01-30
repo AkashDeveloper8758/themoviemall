@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import MainPoster from "./components/posterComponent";
 
-import { Link } from "react-router-dom";
 import { movieAPIS, movieType, routeConstants } from "../../defaultConstants";
 import "../../index.css";
 import MovieGrid from "./components/movieGrid";
 import { GlobalContext } from "../../GlobalStates";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 function HomeScreen() {
   // playing now *
@@ -14,13 +13,11 @@ function HomeScreen() {
   // upcomming
   // top rated *
 
-
-
   const [playingNowMovies, setPlayingNowMovies] = useState([]);
   const [upcomingMovies, setUpcomingNowMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
-  const history = useHistory()
+  const history = useHistory();
   // const [isLoading, setIsLoading] = useState(false);
 
   const { moviesGlobal, setMoviesAction } = useContext(GlobalContext);
@@ -30,10 +27,11 @@ function HomeScreen() {
     movieAPIS.POPULAR_NOW_API,
     movieAPIS.TOP_RATED_API,
   ];
+
   const HeadingElement = ({ heading, url }) => {
     return (
       <div className="heading mt-8">
-        <Link to={url}>{heading}</Link>
+        <p>{heading}</p>
       </div>
     );
   };
@@ -60,8 +58,9 @@ function HomeScreen() {
     }
   };
   function fetchMovieFromResult(moviesResult) {
-    history.replace('/')
+    history.replace("/");
     var movieItems = [];
+    var movieFirstList = [];
     moviesResult.forEach((item) => {
       var posterPath = "http://image.tmdb.org/t/p/w400" + item["poster_path"];
       var id = item["id"];
@@ -71,16 +70,46 @@ function HomeScreen() {
         "http://image.tmdb.org/t/p/w500" + item["backdrop_path"];
       var releaseDate = item["release_date"];
       var rating = item["vote_average"];
-      movieItems.push({
-        id,
-        title,
-        overview,
-        backDropPath,
-        releaseDate,
-        rating,
-        posterPath,
-      });
+
+      const currentMonth = new Date().getMonth();
+      const currentYear = new Date().getFullYear();
+      const movieDate = new Date(releaseDate);
+
+      console.log("year is current: ", movieDate.getFullYear() === currentYear);
+      console.log(
+        "month is greater than current: ",
+        movieDate.getMonth >= currentMonth
+      );
+
+      if (
+        (movieDate.getFullYear() === currentYear) &
+        (movieDate.getMonth() >= currentMonth)
+      ) {
+        console.log("first push");
+        movieFirstList.push({
+          id,
+          title,
+          overview,
+          backDropPath,
+          releaseDate,
+          rating,
+          posterPath,
+        });
+      } else {
+        console.log("last push");
+
+        movieItems.push({
+          id,
+          title,
+          overview,
+          backDropPath,
+          releaseDate,
+          rating,
+          posterPath,
+        });
+      }
     });
+    movieItems = [...movieFirstList, ...movieItems];
     return movieItems;
   }
   useEffect(() => {
@@ -98,6 +127,7 @@ function HomeScreen() {
           const movieJson = await movieRes.json();
           const moviesList = movieJson["results"];
           var movieItems = fetchMovieFromResult(moviesList);
+
           var movieTypeData = movieTypeToApiMaping(url, movieItems);
 
           await setMoviesAction(movieTypeData, movieItems);
@@ -112,7 +142,6 @@ function HomeScreen() {
       }
     };
     fetchData();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // console.log("is loading is: ", isLoading);
@@ -121,36 +150,31 @@ function HomeScreen() {
     <Fragment>
       <div>
         <MainPoster
-          moviePoster={
-            playingNowMovies === undefined ? undefined : playingNowMovies[0]
-          }
+          moviePoster={upcomingMovies[Math.floor(Math.random() * 20 + 1)]}
         />
         <div className="mx-8 my-4">
-          <HeadingElement
-            heading={"Upcomming >>"}
-            url={routeConstants.UPCOMMING_ROUTE}
-          />
-          <MovieGrid movies={upcomingMovies && upcomingMovies.slice(0, 5)} />
-
-          <HeadingElement
-            heading={"Playing Now >>"}
-            url={routeConstants.PLAYING_NOW_ROUTE}
-          />
+          <HeadingElement heading={"Upcomming"} />
           <MovieGrid
+            route={routeConstants.UPCOMMING_ROUTE}
+            movies={upcomingMovies && upcomingMovies.slice(0, 5)}
+          />
+
+          <HeadingElement heading={"Playing Now"} />
+          <MovieGrid
+            route={routeConstants.PLAYING_NOW_ROUTE}
             movies={playingNowMovies && playingNowMovies.slice(0, 5)}
           />
-
-          <HeadingElement
-            heading={"Popular >>"}
-            url={routeConstants.POPULAR_ROUTE}
+          <HeadingElement heading={"Popular"} />
+          <MovieGrid
+            route={routeConstants.POPULAR_ROUTE}
+            movies={popularMovies && popularMovies.slice(0, 5)}
           />
-          <MovieGrid movies={popularMovies && popularMovies.slice(1, 6)} />
 
-          <HeadingElement
-            heading={"Top Rated >>"}
-            url={routeConstants.TOP_RATED_ROUTE}
+          <HeadingElement heading={"Top Rated"} />
+          <MovieGrid
+            route={routeConstants.TOP_RATED_ROUTE}
+            movies={topRatedMovies && topRatedMovies.slice(3, 8)}
           />
-          <MovieGrid movies={topRatedMovies && topRatedMovies.slice(3, 8)} />
         </div>
       </div>
     </Fragment>
