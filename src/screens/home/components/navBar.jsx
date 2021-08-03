@@ -11,7 +11,7 @@ function NavBar() {
   const handleOnChange = (event) => {
     console.log("changing, ", event.target.value);
     setSearchInput(event.target.value);
-  };
+  }; 
 
   function handleSubmit(event) {
     console.log("handling submit");
