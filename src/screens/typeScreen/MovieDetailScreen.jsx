@@ -25,6 +25,7 @@ function MovieDetail({ movieId }) {
     var releaseDate = moviesResult["release_date"];
     var rating = moviesResult["vote_average"];
     var gernes = moviesResult["genres"];
+    
     var tagline = moviesResult["tagline"];
     var imdb_id = moviesResult["imdb_id"];
     var productionCompanies = moviesResult["production_companies"];

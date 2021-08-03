@@ -47,7 +47,11 @@ function HomeScreen() {
         return movieType.UPCOMMING_MOVIES;
 
       case movieAPIS.TOP_RATED_API:
-        setTopRatedMovies(movies);
+
+        var filteredTopRatedMovies = movies.filter((value)=>{
+          return !value.title.includes('Gabriel');
+        })
+        setTopRatedMovies(filteredTopRatedMovies);
         return movieType.TOP_RATED;
 
       case movieAPIS.PLAYING_NOW_API:
@@ -146,11 +150,12 @@ function HomeScreen() {
   }, []);
   // console.log("is loading is: ", isLoading);
 
+
   return (
     <Fragment>
       <div>
-        <MainPoster
-          moviePoster={upcomingMovies[Math.floor(Math.random() * 20 + 1)]}
+        <MainPoster 
+          moviePoster={upcomingMovies[Math.floor(Math.random() * upcomingMovies.length)]}
         />
         <div className="mx-8 my-4">
           <HeadingElement heading={"Upcomming"} />
@@ -173,7 +178,7 @@ function HomeScreen() {
           <HeadingElement heading={"Top Rated"} />
           <MovieGrid
             route={routeConstants.TOP_RATED_ROUTE}
-            movies={topRatedMovies && topRatedMovies.slice(3, 8)}
+            movies={topRatedMovies && topRatedMovies.slice(0,5)}
           />
         </div>
       </div>

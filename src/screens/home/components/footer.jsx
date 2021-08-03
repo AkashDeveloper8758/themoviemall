@@ -7,7 +7,8 @@ function FooterComponent() {
       <div className="flex-grow">
         <img className='h-14 w-auto p-2' src={TMDB_LOGO} alt="tmdb logo"></img>
       </div>
-      <div className='flex flex-col sm:flex-row'>
+      <div className='flex flex-col sm:flex-row my-2'>
+      <p className="text-white text-base  sm:text-lg  sm:p-2 mr-1">v 1.1.0 </p>
       <p className="text-white text-base  sm:text-lg  sm:p-2 mr-1">@copyright 2021 </p>
       <p className="text-white text-base  sm:text-lg  sm:p-2">Developed by Akash Maurya </p>
       </div>
